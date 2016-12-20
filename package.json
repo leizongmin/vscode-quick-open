@@ -11,13 +11,17 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.quickOpen"
+    "onCommand:extension.quickOpen",
+    "onCommand:extension.quickOpenPath"
   ],
   "main": "./out/src/extension",
   "contributes": {
     "commands": [{
       "command": "extension.quickOpen",
       "title": "Quick Open"
+    }, {
+      "command": "extension.quickOpenPath",
+      "title": "Quick Open Input Path"
     }]
   },
   "scripts": {

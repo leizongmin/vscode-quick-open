@@ -11,6 +11,7 @@ import * as vscode from "vscode";
 export function activate(context: vscode.ExtensionContext) {
 
   const CMD_QUICKOPEN = "extension.quickOpen";
+  const CMD_QUICKOPEN_PATH = "extension.quickOpenPath";
 
   const HOME_DIR = os.homedir();
 
@@ -22,50 +23,57 @@ export function activate(context: vscode.ExtensionContext) {
     const list = await readdir(dir);
     const ret: vscode.QuickPickItem[] = [
       {
-        description: "Parent Directory",
-        detail: path.resolve(dir, ".."),
-        label: "..",
-      },
-      {
-        description: "Root Directory",
-        detail: "/",
+        description: "/",
         label: "/",
       },
       {
-        description: "Home Directory",
-        detail: HOME_DIR,
+        description: path.resolve(dir, ".."),
+        label: "..",
+      },
+      {
+        description: HOME_DIR,
         label: "~",
       },
     ];
     for (const item of list) {
       const f = path.resolve(dir, item);
-      const s = await readFileStats(f);
       ret.push({
-        description: `(${ s.isFile() ? "File" : "Dir" })`,
-        detail: f,
+        description: f,
         label: item,
       });
     }
     return ret;
   }
 
-  function showFiles(selectPath) {
+  function showFiles(selectPath: string) {
     vscode.window.showQuickPick(listDir(selectPath)).then(item => {
-      vscode.commands.executeCommand(CMD_QUICKOPEN, item.detail);
+      vscode.commands.executeCommand(CMD_QUICKOPEN, item.description);
     });
   }
 
-  let disposable = vscode.commands.registerCommand(CMD_QUICKOPEN, async (selectPath: string) => {
+  function fixFilePath(file: string): string {
+    if (file.slice(0, 2) === "~/" || file === "~") {
+      file = HOME_DIR + file.slice(1);
+    }
+    return file;
+  }
+
+  function openDocument(file: string) {
+    file = fixFilePath(file);
+    console.log("openTextDocument", file);
+    vscode.workspace.openTextDocument(file).then(doc => {
+      console.log("openTextDocument success", doc.fileName);
+      vscode.window.showTextDocument(doc);
+    });
+  }
+
+  context.subscriptions.push(vscode.commands.registerCommand(CMD_QUICKOPEN, async (selectPath: string) => {
     try {
       console.log("quickOpen", selectPath);
-      selectPath = selectPath || getRootPath();
+      selectPath = fixFilePath(selectPath || getRootPath());
       const s = await readFileStats(selectPath);
       if (s.isFile()) {
-        console.log("openTextDocument", selectPath);
-        vscode.workspace.openTextDocument(selectPath).then(doc => {
-          console.log("openTextDocument success", doc.fileName);
-          vscode.window.showTextDocument(doc);
-        });
+        openDocument(selectPath);
         return;
       }
       if (s.isDirectory()) {
@@ -75,8 +83,16 @@ export function activate(context: vscode.ExtensionContext) {
     } catch (err) {
       vscode.window.showErrorMessage(err && err.message || String(err));
     }
-  });
-  context.subscriptions.push(disposable);
+  }));
+
+  context.subscriptions.push(vscode.commands.registerCommand(CMD_QUICKOPEN_PATH, async (inputPath: string) => {
+    if (!inputPath) {
+      inputPath = await vscode.window.showInputBox({
+        prompt: "Enter the file path to open",
+      });
+    }
+    vscode.commands.executeCommand(CMD_QUICKOPEN, inputPath);
+  }));
 }
 
 export function deactivate() {}
