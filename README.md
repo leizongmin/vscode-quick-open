@@ -1,65 +1,60 @@
-# open-file README
+[![Marketplace Version](http://vsmarketplacebadge.apphb.com/version/leizongmin.quick-open.svg)](https://marketplace.visualstudio.com/items?itemName=leizongmin.quick-open)
+[![Installs](http://vsmarketplacebadge.apphb.com/installs/leizongmin.quick-open.svg)](https://marketplace.visualstudio.com/items?itemName=leizongmin.quick-open)
+[![Rating](http://vsmarketplacebadge.apphb.com/rating/leizongmin.quick-open.svg)](https://marketplace.visualstudio.com/items?itemName=leizongmin.quick-open)
+[![The MIT License](https://img.shields.io/badge/license-MIT-orange.svg?style=flat-square)](http://opensource.org/licenses/MIT)
+[![Build Status](https://img.shields.io/travis/leizongmin/vscode-quick-open.svg)](https://travis-ci.org/leizongmin/vscode-quick-open)
+[![David](https://img.shields.io/david/leizongmin/vscode-quick-open.svg?style=flat-square)](https://david-dm.org/leizongmin/vscode-quick-open)
 
-This is the README for your extension "open-file". After writing up a brief description, we recommend including the following sections.
+# Quick Open
 
-## Features
+Visual Studio Code plugin that provide a quick open file command
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+![auto complete](https://github.com/leizongmin/vscode-quick-open/raw/master/images/auto_complete.gif)
 
-For example if there is an image subfolder under your extension project workspace:
 
-\!\[feature X\]\(images/feature-x.png\)
+## Installation
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Launch VS Code Quick Open (⌘+P), paste the following command, and press enter.
 
-## Requirements
+```
+ext install quick-open
+```
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+View detail on [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=leizongmin.quick-open)
 
-## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Issues & Contribution
 
-For example:
+If there is any bug, create a pull request or an issue please.
+[Github](https://github.com/leizongmin/vscode-quick-open)
 
-This extension contributes the following settings:
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+## Changelog
 
-## Known Issues
++ v1.0.0 - Initial release
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+## License
 
-## Release Notes
+```
+MIT License
 
-Users appreciate release notes as you update your extension.
+Copyright (c) 2016 Zongmin Lei <leizongmin@gmail.com>
 
-### 1.0.0
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Initial release of ...
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

@@ -1,7 +1,7 @@
 {
   "name": "quick-open",
   "displayName": "Quick Open",
-  "description": "Quick open file in one command",
+  "description": "Visual Studio Code plugin that provide a quick open file command",
   "version": "0.0.1",
   "publisher": "leizongmin",
   "engines": {
@@ -15,6 +15,7 @@
     "onCommand:extension.quickOpenPath"
   ],
   "main": "./out/src/extension",
+  "icon": "images/icon.png",
   "contributes": {
     "commands": [{
       "command": "extension.quickOpen",
