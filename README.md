@@ -9,7 +9,11 @@
 
 Visual Studio Code plugin that provide a quick open file command
 
-![auto complete](https://github.com/leizongmin/vscode-quick-open/raw/master/images/auto_complete.gif)
+![Quick Open](https://github.com/leizongmin/vscode-quick-open/raw/master/images/quick_open.gif)
+
+![Quick Open Path](https://github.com/leizongmin/vscode-quick-open/raw/master/images/open_path.gif)
+
+![Quick Open URL](https://github.com/leizongmin/vscode-quick-open/raw/master/images/open_url.gif)
 
 
 ## Installation
@@ -21,6 +25,12 @@ ext install quick-open
 ```
 
 View detail on [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=leizongmin.quick-open)
+
+
+## Keybindings
+
++ CTRL+⌘+O - Quick Open File
++ CTRL+⌘+P - Quick Open Input Path
 
 
 ## Issues & Contribution
