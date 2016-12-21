@@ -23,6 +23,13 @@
     }, {
       "command": "extension.quickOpenPath",
       "title": "Quick Open Input Path"
+    }],
+    "keybindings": [{
+      "command": "extension.quickOpen",
+      "key": "ctrl+cmd+o"
+    }, {
+      "command": "extension.quickOpenPath",
+      "key": "ctrl+cmd+p"
     }]
   },
   "scripts": {

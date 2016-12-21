@@ -45,8 +45,12 @@ export function activate(context: vscode.ExtensionContext) {
     return ret;
   }
 
-  function showFiles(selectPath: string) {
-    vscode.window.showQuickPick(listDir(selectPath)).then(item => {
+  function showFiles(pickedPath: string) {
+    vscode.window.showQuickPick(listDir(pickedPath)).then(item => {
+      if (!item) {
+        console.log("canceled pick");
+        return;
+      }
       vscode.commands.executeCommand(CMD_QUICKOPEN, item.description);
     });
   }
@@ -67,17 +71,23 @@ export function activate(context: vscode.ExtensionContext) {
     });
   }
 
-  context.subscriptions.push(vscode.commands.registerCommand(CMD_QUICKOPEN, async (selectPath: string) => {
+  context.subscriptions.push(vscode.commands.registerCommand(CMD_QUICKOPEN, async (pickedPath: string) => {
+    if (typeof pickedPath !== "string") {
+      console.log("pickedPath is not a string");
+      console.log(pickedPath);
+      pickedPath = "";
+    }
     try {
-      console.log("quickOpen", selectPath);
-      selectPath = fixFilePath(selectPath || getRootPath());
-      const s = await readFileStats(selectPath);
+      pickedPath = pickedPath || getRootPath();
+      console.log("quickOpen", pickedPath);
+      pickedPath = fixFilePath(pickedPath);
+      const s = await readFileStats(pickedPath);
       if (s.isFile()) {
-        openDocument(selectPath);
+        openDocument(pickedPath);
         return;
       }
       if (s.isDirectory()) {
-        showFiles(selectPath);
+        showFiles(pickedPath);
         return;
       }
     } catch (err) {
@@ -86,6 +96,11 @@ export function activate(context: vscode.ExtensionContext) {
   }));
 
   context.subscriptions.push(vscode.commands.registerCommand(CMD_QUICKOPEN_PATH, async (inputPath: string) => {
+    if (typeof inputPath !== "string") {
+      console.log("inputPath is not a string");
+      console.log(inputPath);
+      inputPath = "";
+    }
     if (!inputPath) {
       inputPath = await vscode.window.showInputBox({
         prompt: "Enter the file path to open",
@@ -95,7 +110,7 @@ export function activate(context: vscode.ExtensionContext) {
   }));
 }
 
-export function deactivate() {}
+export function deactivate() { }
 
 /**
  * returns file stats
