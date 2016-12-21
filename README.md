@@ -9,9 +9,15 @@
 
 Visual Studio Code plugin that provide a quick open file command
 
+## open pick up path
+
 ![Quick Open](https://github.com/leizongmin/vscode-quick-open/raw/master/images/quick_open.gif)
 
+## open input path
+
 ![Quick Open Path](https://github.com/leizongmin/vscode-quick-open/raw/master/images/open_path.gif)
+
+## open input URL
 
 ![Quick Open URL](https://github.com/leizongmin/vscode-quick-open/raw/master/images/open_url.gif)
 

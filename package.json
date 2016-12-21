@@ -4,6 +4,15 @@
   "description": "Visual Studio Code plugin that provide a quick open file command",
   "version": "0.0.1",
   "publisher": "leizongmin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leizongmin/vscode-quick-open.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leizongmin/vscode-quick-open/issues"
+  },
+  "homepage": "https://github.com/leizongmin/vscode-quick-open#readme",
   "engines": {
     "vscode": "^1.5.0"
   },
