@@ -2,7 +2,7 @@
   "name": "quick-open",
   "displayName": "Quick Open",
   "description": "Visual Studio Code plugin that provide a quick open file command",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "publisher": "leizongmin",
   "repository": {
     "type": "git",
