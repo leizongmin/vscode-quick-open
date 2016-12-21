@@ -17,20 +17,26 @@
   "main": "./out/src/extension",
   "icon": "images/icon.png",
   "contributes": {
-    "commands": [{
-      "command": "extension.quickOpen",
-      "title": "Quick Open"
-    }, {
-      "command": "extension.quickOpenPath",
-      "title": "Quick Open Input Path"
-    }],
-    "keybindings": [{
-      "command": "extension.quickOpen",
-      "key": "ctrl+cmd+o"
-    }, {
-      "command": "extension.quickOpenPath",
-      "key": "ctrl+cmd+p"
-    }]
+    "commands": [
+      {
+        "command": "extension.quickOpen",
+        "title": "Quick Open File"
+      },
+      {
+        "command": "extension.quickOpenPath",
+        "title": "Quick Open Input Path"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.quickOpen",
+        "key": "ctrl+cmd+o"
+      },
+      {
+        "command": "extension.quickOpenPath",
+        "key": "ctrl+cmd+p"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "tsc -p ./",
@@ -43,5 +49,8 @@
     "mocha": "^2.3.3",
     "@types/node": "^6.0.40",
     "@types/mocha": "^2.2.32"
+  },
+  "dependencies": {
+    "lei-download": "^0.5.2"
   }
 }
