@@ -7,6 +7,8 @@
 
 # Quick Open
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/leizongmin/vscode-quick-open.svg)](https://greenkeeper.io/)
+
 Visual Studio Code plugin that provide a quick open file command
 
 ## open pick up path
