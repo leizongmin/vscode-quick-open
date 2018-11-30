@@ -148,6 +148,8 @@ export function activate(context: vscode.ExtensionContext) {
       } catch (err) {
         showStatusWran(err.message);
       }
+    } else {
+      inputPath = path.resolve(getRootPath(), inputPath);
     }
     vscode.commands.executeCommand(CMD_QUICKOPEN, inputPath);
   }));
