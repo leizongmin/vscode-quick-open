@@ -4,10 +4,10 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as fs from "fs";
-import * as path from "path";
-import * as os from "os";
-import * as vscode from "vscode";
 import * as leiDownload from "lei-download";
+import * as os from "os";
+import * as path from "path";
+import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -74,7 +74,7 @@ export function activate(context: vscode.ExtensionContext) {
   }
 
   function showFiles(pickedPath: string) {
-    vscode.window.showQuickPick(listDir(pickedPath)).then(item => {
+    vscode.window.showQuickPick(listDir(pickedPath)).then((item) => {
       if (!item) {
         console.log("canceled pick");
         return;
@@ -93,7 +93,7 @@ export function activate(context: vscode.ExtensionContext) {
   function openDocument(file: string) {
     file = fixFilePath(file);
     console.log("openTextDocument", file);
-    vscode.workspace.openTextDocument(file).then(doc => {
+    vscode.workspace.openTextDocument(file).then((doc) => {
       console.log("openTextDocument success", doc.fileName);
       vscode.window.showTextDocument(doc);
     });
